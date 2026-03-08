@@ -17,7 +17,7 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu kitty --title launcher -e fsel
 
 ### Output configuration
 #
@@ -97,6 +97,10 @@ titlebar_padding 0
 
     # Start your launcher
     bindsym $mod+t exec $menu
+    for_window [title="launcher"] floating enable
+    for_window [title="launcher"] move position centre
+    for_window [title="launcher"] resize set height 480 px
+    for_window [title="launcher"] resize set width 700 px
 
     bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
 
